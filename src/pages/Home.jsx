@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Home() {
   //let a = 1;
@@ -12,11 +12,19 @@ function Home() {
         nombre: 'Cristian',
     },
 ]
-
+  
   const handleClick = () => {
     //a = 10;null
     setData(10);
   }
+
+  useEffect(() => { //Life Cicle
+    console.log('apenas se inicie el componente life cicle', data);
+
+    /* return () => {
+        console.log('cuando muere el componente')
+    }; */
+  }, [data]) //Change: tiene que venir del useState y es lo que cambia
     return (
         <div>
             <div>Home</div>
